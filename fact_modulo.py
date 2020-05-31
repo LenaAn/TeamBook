@@ -5,7 +5,10 @@ facts = [1 for i in range(m+1)]
 for i in range(1, m+1):
 	facts[i] = (i * facts[i-1]) % MODULO
 
-facts_1 = [pow(facts[i], MODULO-2, MODULO) for i in range(m+1)]
+facts_1 = [1 for _ in range(m + 1)]
+facts_1[m] = pow(facts[m], MODULO - 2, MODULO)
+for i in range(m-1, -1, -1):
+    facts_1[i] = facts_1[i+1] * (i+1) % MODULO
 
 
 def C(n, k):
